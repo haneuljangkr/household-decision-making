@@ -29,9 +29,8 @@ library(distributional)
 ##########################################################
 #######          Read cleaned data                 #######
 ##########################################################
-setwd("/Users/haneuljang/Desktop")
 
-d = read.csv("hh_decision_cleaned.csv", header=T, sep=",")
+d = read.csv("hh_decision_data.csv", header=T, sep=",")
 
 ################################################################################
 #######                     Bandongo VS BaYaka women                     #######
@@ -55,7 +54,7 @@ table(d_eth$score, useNA="always")
 ###############################################################
 d_eth$score=ordered(as.factor(d_eth$score))
 
-get_prior(score ~ Ethnicity*domain + (1 | ind_id), data=d_eth, family=cumulative())
+get_prior(score ~ Ethnicity*domain2 + (1 | ind_id), data=d_eth, family=cumulative())
 
 m0 <- brm(score ~ (1 | ind_id),
           data=d_eth, 
