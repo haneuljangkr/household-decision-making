@@ -35,7 +35,7 @@ d = read.csv("hh_decision_data.csv", header=T, sep=",")
 ################################################################################
 #######                     Bandongo VS BaYaka women                     #######
 ################################################################################
-d_eth = dlong[dlong$Sex == "Female",]
+d_eth = d[d$Sex == "Female",]
 
 table(d_eth$response, useNA="always")
 
@@ -108,7 +108,7 @@ pp_check(m1, type = "ecdf_overlay_grouped", group = "ind_id")
 ################################################################################
 #######                      BaYaka WOMEN versus MEN                     #######
 ################################################################################
-d_sex = dlong[dlong$Ethnicity == "bayaka",]
+d_sex = d[d$Ethnicity == "bayaka",]
 
 table(d_sex$response, useNA="always")
 
